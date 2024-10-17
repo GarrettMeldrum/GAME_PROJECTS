@@ -122,7 +122,7 @@ class twenty48:
             self.add_new_tile()
 
 
-    def game_over(self):
+    def is_game_over(self):
         ''' Check if there are no possible moves left. '''
         # Check if there are any empty tiles
         for row in self.grid:
@@ -137,25 +137,3 @@ class twenty48:
                 if self.grid[j][i] == self.grid[j + 1][i]: # Check vertically
                     return False
         return True
-
-    def play(self):
-        ''' Main game loop '''
-        while not self.game_over():
-            self.print_grid()
-            move = input("Enter move (w = up, s = down, a = left, d = right): ").lower()
-            if move == 'a':
-                self.move_left()
-            elif move == 'd':
-                self.move_right()
-            elif move == 'w':
-                self.move_up()
-            elif move == 's':
-                self.move_down()
-            else:
-                print("Invalid move! Please use 'w', 'a', 's', or 'd'.")
-        print("Game Over!")
-        self.print_grid()
-
-
-game = twenty48()
-game.play()
